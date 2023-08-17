@@ -16,7 +16,7 @@ Python Requirments:-
 python - 3.10.7
 tensorflow - 2.11.0
 keras - 2.11.0
-dilib - 19.22.99
+dilib - 19.22.99 (file included)
 matplotlib 
 opencv-python - 4.5.5.64
 pandas - 1.5.3
