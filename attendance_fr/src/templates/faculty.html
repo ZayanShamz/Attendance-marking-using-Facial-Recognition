@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}faculty page{% endblock %}
+
+{% block usr %}
+ <a class="navbar-brand" href="/faculty">Attendance</a>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5" align="center">
+  <p><a href="/start" class="btn btn-outline-danger btn-lg"  title="Open Camera">Take Attendance</a></p>
+  <br>
+  <p><a href="/submit" class="btn btn-outline-danger btn-lg"  title="Submit">Submit Attendance</a></p>
+  <br>
+  <p><a href="/history" class="btn btn-outline-secondary btn-lg"  title="View attendance history">View Attendance</a></p>
+  <br>
+  <br>
+  <p><a href="/studentRegister" class="btn btn-outline-secondary btn-lg" title="Add A Student">Student Register</a></p>
+  <br>
+  <p><a href="/studentList" class="btn btn-outline-secondary btn-lg"  title="View a list of Students">View Students</a></p>
+  <br>
+
+
+</div>
+
+{% endblock %}}

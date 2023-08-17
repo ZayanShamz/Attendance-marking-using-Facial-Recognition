@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block title%}Student Register{% endblock %}
+
+
+{% block usr %}
+    {% if ut=='faculty' %}
+ <a class="navbar-brand" href="/faculty">Attendance</a>
+    {% else %}
+ <a class="navbar-brand" href="admin">Attendance</a>
+    {% endif %}
+{% endblock %}
+
+
+{% block body %}
+
+  <div class="container py-3 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration border border-secondary" style="border-radius: 15px;">
+          <div class="card-body p-2 p-md-3">
+            <div class="d-flex justify-content-center">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+            </div>
+
+            <form action="/studentRegister" method="post" enctype="multipart/form-data">
+              <div class="row">
+                 <div class="col-md-4 mb-4">
+                    <input type="text"  name="reg" class="form-control border border-secondary" placeholder="Register Number">
+                </div>
+                <div class="col-md-8 mb-4">
+                    <input type="text"  name="name" class="form-control border border-secondary" placeholder="Student Name">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="dob" class="form-label">Date Of Birth</label>
+                    <input type="date" class="form-control form-control-md border border-secondary" id="dob" name="dob"/>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <h6 class="mb-2 pb-1">Gender: </h6>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input border border-secondary" type="radio" name="gender" id="femaleGender"
+                      value="female"/>
+                    <label class="form-check-label" for="femaleGender">Female</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input border border-secondary" type="radio" name="gender" id="maleGender"
+                      value="male" />
+                    <label class="form-check-label" for="maleGender">Male</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input border border-secondary" type="radio" name="gender" id="otherGender"
+                      value="other" />
+                    <label class="form-check-label" for="otherGender">Other</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="text" id="email" name="email" class="form-control form-control-md border border-secondary" placeholder="Email"/>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="tel" id="phone" name="phone" class="form-control form-control-md border border-secondary" placeholder="Phone Number"/>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <textarea rows="2" id="address" name="address" class="form-control form-control-md border border-secondary" placeholder="Address"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-6 pt-2">
+                   <div class="form-outline">
+                       {% if ut=='faculty' %}
+                       {% else %}
+                        <select class="form-control form-control-md border border-secondary" id="class" name="class">
+                              <option value="">Select Class</option>
+                          {% for i in data %}
+                              <option value="{{ i[0] }}">{{ i[0] }}</option>
+                          {% endfor %}
+                        </select>
+                       {% endif %}
+                   </div>
+                </div>
+              </div>
+
+               <div class="row">
+                <div class="d-flex justify-content-center mb-3">
+
+                  <div class="image-preview-container">
+                      <div class="preview ">
+                          <img src="" id="preview-selected-image" />
+                      </div>
+                      <label for="file-upload">Select Image</label>
+                      <input type="file" id="file-upload" name="photo" accept="image/*" onchange="previewImage(event);"/>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                     <div class="d-flex justify-content-center">
+                        <input class="btn btn-secondary btn-lg" type="submit" value="Register" />
+                     </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+    const previewImage = (event) => {
+    const imageFiles = event.target.files;
+    const imageFilesLength = imageFiles.length;
+    if (imageFilesLength > 0) {
+        const imageSrc = URL.createObjectURL(imageFiles[0]);
+        const imagePreviewElement = document.querySelector("#preview-selected-image");
+        imagePreviewElement.src = imageSrc;
+        imagePreviewElement.style.display = "block";
+    }
+};
+</script>
+
+{% endblock %}

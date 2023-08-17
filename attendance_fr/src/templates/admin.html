@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Admin Page{% endblock %}
+
+{% block usr %}
+    <a class="navbar-brand" href="/admin">Attendance</a>
+{% endblock %}
+
+
+{% block body %}
+<div class="container mt-5" align="center">
+  <p><a href="/facultyRegister" class="btn btn-outline-dark btn-lg">Register New Faculty</a></p>
+  <br>
+  <p><a href="/facultyList" class="btn btn-outline-secondary btn-lg">View Faculty</a></p>
+  <br>
+  <p><a href="/studentRegister" class="btn btn-outline-dark btn-lg">Register Student</a></p>
+  <br>
+  <p><a href="/studentList" class="btn btn-outline-secondary btn-lg">View Students</a></p>
+  <br>
+  <p><a href="/addClass" class="btn btn-outline-danger btn-lg">Add New Class</a></p>
+</div>
+{% endblock %}

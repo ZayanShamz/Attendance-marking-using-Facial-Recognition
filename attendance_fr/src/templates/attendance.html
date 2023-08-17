@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}faculty page{% endblock %}
+
+{% block usr %}
+ <a class="navbar-brand" href="/faculty">Attendance</a>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+ <div class="table-responsive">
+	<table align="center" class="table">
+        <tr>
+          {% for h in head %}
+            <th>{{ h }}</th>
+          {% endfor %}
+        </tr>
+        {% for i in data %}
+        <tr>
+            {% for j in i %}
+            <td>{{ j }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+ </div>
+</div>
+
+{% endblock %}}

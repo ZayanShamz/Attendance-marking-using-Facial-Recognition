@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title%}Faculty List{% endblock %}
+
+{% block usr %}
+    <a class="navbar-brand" href="/admin">Attendance</a>
+{% endblock %}
+
+    {% block search %}
+        <form action="/facultyList" method="post" class="d-flex" role="search">
+        <input class="form-control me-2" type="search" name="search" placeholder="Search Faculty" aria-label="Search">
+        <button class="btn btn-outline-success text-light" type="submit">Search</button>
+      </form>
+    {% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+    {% if val==1 %}
+     <div class="row">
+         <div class="col py-2">
+             <a href="/facultyList" class="btn btn-outline-secondary btn-sm">back</a>
+         </div>
+     </div>
+     {% endif %}
+     <div class="table-responsive">
+         {% if data %}
+        <table align="center" border="1" class="table">
+          <tbody>
+            <tr>
+              <th>Faculty Name</th>
+              <th>Department</th>
+              <th>Age</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Qualification</th>
+              <td>&nbsp;</td>
+            </tr>
+           {% for i in data %}
+            <tr class="clickable">
+              <td>{{ i[2] }}</td>
+              <td>{{ i[8] }}</td>
+              <td>{{ (i[11])|int }}</td>
+              <td>{{ i[5] }}</td>
+              <td>{{ i[6]  }}</td>
+              <td>{{ i[7] }}</td>
+              <td>
+              <a href="/removeFaculty/{{ i[1] }}" class="btn btn-danger">Remove</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+          {% else %}
+         <div align="center">
+             <h3 align="center">Faculty not Found </h3>
+             <small>Check Your Spelling</small>
+         </div>
+         {% endif %}
+     </div>
+</div>
+{% endblock %}
