@@ -49,5 +49,3 @@ To run the application, ensure you have the following Python packages installed:
 1. As an administrator, add faculty and classes, assign students to classes, and manage entries.
 2. Faculty members can log in, add students to their classes, take attendance using face recognition, and submit records.
 3. Both administrators and faculty can view attendance records.
-
-Please refer to the documentation or help guide for detailed instructions on how to set up and use the application.
